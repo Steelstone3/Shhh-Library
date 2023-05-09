@@ -8,7 +8,7 @@ namespace ShhhLibrary.Handlers
 {
     public class OrderBook : INotificationHandler<BookRelease>
     {
-        private ILibrary library;
+        private readonly ILibrary library;
 
         public OrderBook(ILibrary library)
         {

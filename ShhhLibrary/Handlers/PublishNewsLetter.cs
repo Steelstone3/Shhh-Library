@@ -9,7 +9,7 @@ namespace ShhhLibrary.Handlers
 {
     public class PublishNewsLetter : INotificationHandler<BookRelease>
     {
-        private ILibrary library;
+        private readonly ILibrary library;
 
         public PublishNewsLetter(ILibrary library)
         {
