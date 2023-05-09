@@ -5,13 +5,11 @@ namespace ShhhLibrary.Notifications
 {
     public class BookRelease : INotification
     {
-        public BookRelease(IBook book, ILibrary library)
+        public BookRelease(IBook book)
         {
             Book = book;
-            Library = library;
         }
 
         public IBook Book { get; }
-        public ILibrary Library { get; }
     }
 }

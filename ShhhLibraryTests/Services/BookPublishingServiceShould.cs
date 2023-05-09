@@ -23,8 +23,7 @@ namespace ShhhLibraryTests.Services
         {
             // Given
             Mock<IBook> book = new();
-            Mock<ILibrary> library = new();
-            BookRelease bookRelease = new(book.Object, library.Object);
+            BookRelease bookRelease = new(book.Object);
             mediator.Setup(m => m.Publish(bookRelease, default));
 
             // When

@@ -16,8 +16,8 @@ namespace ShhhLibraryTests.Handlers
             Mock<IBook> book = new();
             Mock<ILibrary> library = new();
             library.Setup(lib => lib.PublishNewsLetter(book.Object));
-            BookRelease bookRelease = new(book.Object, library.Object);
-            PublishNewsLetter publishNewsLetter = new();
+            BookRelease bookRelease = new(book.Object);
+            PublishNewsLetter publishNewsLetter = new(library.Object);
 
             // When
             await publishNewsLetter.Handle(bookRelease, default);

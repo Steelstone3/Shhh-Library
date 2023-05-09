@@ -4,6 +4,7 @@ namespace BubblesDivePlanner
     {
         internal static void Main()
         {
+            
         }
     }
 }

@@ -12,8 +12,7 @@ namespace ShhhLibraryTests.Notifications
         {
             // Given
             Mock<IBook> book = new();
-            Mock<ILibrary> library = new();
-            BookRelease bookRelease = new(book.Object, library.Object);
+            BookRelease bookRelease = new(book.Object);
 
             // Then
             Assert.NotNull(bookRelease.Book);

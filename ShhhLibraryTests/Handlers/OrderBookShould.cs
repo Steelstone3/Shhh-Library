@@ -17,8 +17,8 @@ namespace ShhhLibraryTests.Handlers
             Mock<ILibrary> library = new();
             library.Setup(lib => lib.PrintBookOnOrder(book.Object));
             library.Setup(lib => lib.AddBook(book.Object));
-            BookRelease bookRelease = new(book.Object, library.Object);
-            OrderBook orderBook = new();
+            BookRelease bookRelease = new(book.Object);
+            OrderBook orderBook = new(library.Object);
 
             // When
             await orderBook.Handle(bookRelease, default);
