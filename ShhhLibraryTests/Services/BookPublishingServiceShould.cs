@@ -22,8 +22,9 @@ namespace ShhhLibraryTests.Services
         public async Task NotifyABookRelease()
         {
             // Given
-            Book book = new("Bob The Frog", "James Corden");
-            BookRelease bookRelease = new(book);
+            Mock<IBook> book = new();
+            Mock<ILibrary> library = new();
+            BookRelease bookRelease = new(book.Object, library.Object);
             mediator.Setup(m => m.Publish(bookRelease, default));
 
             // When
