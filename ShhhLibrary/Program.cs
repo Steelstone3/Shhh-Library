@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using ShhhLibrary.Models;
 using ShhhLibrary.Notifications;
 using ShhhLibrary.Services;
@@ -10,11 +11,20 @@ namespace BubblesDivePlanner
     {
         internal static async Task Main()
         {
-            // Mediator mediator = new();
-            BookPublishingService bookPublishingService = new(default);
+            // Create a new ServiceCollection instance
+            var services = new ServiceCollection();
 
-            Book book = new("Hogwarts", "Harry Potter");
-            BookRelease bookRelease = new(book);
+            // Register the necessary dependencies
+            // services.AddMediatR(typeof(Program).Assembly);
+
+            // Build the service provider and get an instance of Mediator
+            // var serviceProvider = services.BuildServiceProvider();
+            // var mediator = serviceProvider.GetService<IMediator>();
+
+            // Create the publishing service and execute the request
+            var bookPublishingService = new BookPublishingService(mediator);
+            var book = new Book("Hogwarts", "Harry Potter");
+            var bookRelease = new BookRelease(book);
             await bookPublishingService.ExecuteAsync(bookRelease);
         }
     }
