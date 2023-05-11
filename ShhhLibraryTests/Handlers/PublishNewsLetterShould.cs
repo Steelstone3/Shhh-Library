@@ -20,7 +20,7 @@ namespace ShhhLibraryTests.Handlers
             PublishNewsLetter publishNewsLetter = new(library.Object);
 
             // When
-            await publishNewsLetter.Handle(bookRelease, default);
+            await publishNewsLetter.Handle(bookRelease);
 
             // Then
             book.VerifyAll();

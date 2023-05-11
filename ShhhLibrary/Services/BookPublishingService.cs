@@ -14,7 +14,7 @@ namespace ShhhLibrary.Services
 
         public async Task ExecuteAsync(BookRelease bookRelease)
         {
-            await mediator.SendAsync(bookRelease);
+            await mediator.Publish(bookRelease);
         }
     }
 }

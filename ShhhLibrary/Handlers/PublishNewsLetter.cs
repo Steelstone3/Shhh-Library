@@ -15,7 +15,7 @@ namespace ShhhLibrary.Handlers
             this.library = library;
         }
 
-        public Task<bool> HandleAsync(BookRelease bookRelease)
+        public Task<bool> Handle(BookRelease bookRelease)
         {
             library.PublishNewsLetter(bookRelease.Book);
             return Task.FromResult(true);

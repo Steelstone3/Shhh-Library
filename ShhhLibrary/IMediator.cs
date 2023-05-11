@@ -6,6 +6,6 @@ namespace ShhhLibrary
 {
     public interface IMediator
     {
-        Task<TResponse> SendAsync<TResponse>(IRequest<TResponse> request);
+        Task<TResponse> Publish<TResponse>(IRequest<TResponse> request);
     }
 }

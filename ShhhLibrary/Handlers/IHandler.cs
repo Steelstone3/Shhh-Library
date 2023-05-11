@@ -5,6 +5,6 @@ namespace ShhhLibrary.Handlers
 {
     public interface IHandler<in TRequest, TResponse> where TRequest : IRequest<TResponse>
     {
-        Task<TResponse> HandleAsync(TRequest request);
+        Task<TResponse> Handle(TRequest request);
     }
 }

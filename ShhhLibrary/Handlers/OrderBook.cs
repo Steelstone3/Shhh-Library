@@ -14,7 +14,7 @@ namespace ShhhLibrary.Handlers
             this.library = library;
         }
 
-        public Task<bool> HandleAsync(BookRelease bookRelease)
+        public Task<bool> Handle(BookRelease bookRelease)
         {
             library.PrintBookOnOrder(bookRelease.Book);
             library.AddBook(bookRelease.Book);

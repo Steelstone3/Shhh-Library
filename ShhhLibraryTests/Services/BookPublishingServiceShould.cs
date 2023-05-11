@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
-using MediatR;
 using Moq;
+using ShhhLibrary;
 using ShhhLibrary.Models;
 using ShhhLibrary.Notifications;
 using ShhhLibrary.Services;
@@ -24,7 +24,7 @@ namespace ShhhLibraryTests.Services
             // Given
             Mock<IBook> book = new();
             BookRelease bookRelease = new(book.Object);
-            mediator.Setup(m => m.Publish(bookRelease, default));
+            mediator.Setup(m => m.Publish(bookRelease));
 
             // When
             await bookPublishingService.ExecuteAsync(bookRelease);

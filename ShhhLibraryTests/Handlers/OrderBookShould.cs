@@ -21,7 +21,7 @@ namespace ShhhLibraryTests.Handlers
             OrderBook orderBook = new(library.Object);
 
             // When
-            await orderBook.Handle(bookRelease, default);
+            await orderBook.Handle(bookRelease);
 
             // Then
             book.VerifyAll();
