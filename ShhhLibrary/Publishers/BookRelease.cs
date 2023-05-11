@@ -1,9 +1,9 @@
-using MediatR;
 using ShhhLibrary.Models;
+using ShhhLibrary.Publishers;
 
 namespace ShhhLibrary.Notifications
 {
-    public class BookRelease : INotification
+    public class BookRelease : IRequest<bool>
     {
         public BookRelease(IBook book)
         {

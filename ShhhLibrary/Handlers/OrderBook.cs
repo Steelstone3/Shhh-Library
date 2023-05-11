@@ -1,12 +1,11 @@
 using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
 using ShhhLibrary.Models;
 using ShhhLibrary.Notifications;
 
 namespace ShhhLibrary.Handlers
 {
-    public class OrderBook : INotificationHandler<BookRelease>
+    public class OrderBook : IHandler<BookRelease, bool>
     {
         private readonly ILibrary library;
 
@@ -15,11 +14,12 @@ namespace ShhhLibrary.Handlers
             this.library = library;
         }
 
-        public Task Handle(BookRelease bookRelease, CancellationToken cancellationToken)
+        public Task<bool> HandleAsync(BookRelease bookRelease)
         {
             library.PrintBookOnOrder(bookRelease.Book);
             library.AddBook(bookRelease.Book);
-            return Task.CompletedTask;
+            return Task.FromResult(true);
+            // return Task.CompletedTask;
         }
     }
 }

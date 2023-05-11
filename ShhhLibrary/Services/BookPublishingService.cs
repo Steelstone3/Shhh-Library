@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using MediatR;
 using ShhhLibrary.Notifications;
 
 namespace ShhhLibrary.Services
@@ -15,7 +14,7 @@ namespace ShhhLibrary.Services
 
         public async Task ExecuteAsync(BookRelease bookRelease)
         {
-            await mediator.Publish(bookRelease);
+            await mediator.SendAsync(bookRelease);
         }
     }
 }
