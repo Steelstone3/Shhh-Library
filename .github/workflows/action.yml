@@ -27,10 +27,10 @@ jobs:
         with:
           go-version: 1.*
 
-    - name: Build
-    working-directory: ./
-    run: go build ./...
+      - name: Build
+        working-directory: ./
+        run: go build ./...
 
-    - name: Test
-    working-directory: ./
-    run: go test ./...
+      - name: Test
+        working-directory: ./
+        run: go test ./...
