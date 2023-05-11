@@ -1,4 +1,4 @@
-name: .NET Core
+name: Golang
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
         - os: windows-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Go
+    - name: Setup
       uses: actions/setup-go@v2
       with:
         go-version: 1.*
