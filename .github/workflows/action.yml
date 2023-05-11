@@ -23,14 +23,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.*
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.*
 
-      - name: Build
-        working-directory: ./
-        run: go build ./...
+    - name: Build
+      working-directory: ./
+      run: go build ./...
 
-      - name: Test
-        working-directory: ./
-        run: go test ./...
+    - name: Test
+      working-directory: ./
+      run: go test ./...
