@@ -22,19 +22,15 @@ jobs:
         - os: windows-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 7.0.*
-    - name: Install app dependencies
-      working-directory: ./ShhhLibrary
-      run: dotnet restore
+    - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.*
+
     - name: Build
-      working-directory: ./ShhhLibrary
-      run: dotnet build --configuration Release --no-restore
-    - name: Install test dependencies
-      working-directory: ./ShhhLibraryTests
-      run: dotnet restore
+    working-directory: ./
+    run: go build ./...
+
     - name: Test
-      working-directory: ./ShhhLibraryTests
-      run: dotnet test --no-restore --verbosity normal
+    working-directory: ./
+    run: go test ./...
