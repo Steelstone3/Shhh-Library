@@ -3,7 +3,7 @@ using ShhhLibrary.Publishers;
 
 namespace ShhhLibrary.Notifications
 {
-    public class BookRelease : IRequest<bool>
+    public class BookRelease : INotification
     {
         public BookRelease(IBook book)
         {

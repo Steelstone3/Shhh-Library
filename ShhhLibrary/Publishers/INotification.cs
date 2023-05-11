@@ -1,6 +1,6 @@
 namespace ShhhLibrary.Publishers
 {
-    public interface IRequest<TResponse>
+    public interface INotification
     {
     }
 }

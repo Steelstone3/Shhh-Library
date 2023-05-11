@@ -1,10 +1,9 @@
 using System.Threading.Tasks;
-using ShhhLibrary.Publishers;
 
 namespace ShhhLibrary.Handlers
 {
-    public interface IHandler<in TRequest, TResponse> where TRequest : IRequest<TResponse>
+    public interface IHandler<TRequest>
     {
-        Task<TResponse> Handle(TRequest request);
+        Task Handle(TRequest request);
     }
 }

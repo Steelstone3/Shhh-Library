@@ -12,7 +12,7 @@ namespace ShhhLibrary.Services
             this.mediator = mediator;
         }
 
-        public async Task ExecuteAsync(BookRelease bookRelease)
+        public async Task Execute(BookRelease bookRelease)
         {
             await mediator.Publish(bookRelease);
         }

@@ -27,7 +27,7 @@ namespace ShhhLibraryTests.Services
             mediator.Setup(m => m.Publish(bookRelease));
 
             // When
-            await bookPublishingService.ExecuteAsync(bookRelease);
+            await bookPublishingService.Execute(bookRelease);
 
             // Then
             mediator.VerifyAll();

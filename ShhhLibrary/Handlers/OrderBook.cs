@@ -5,7 +5,7 @@ using ShhhLibrary.Notifications;
 
 namespace ShhhLibrary.Handlers
 {
-    public class OrderBook : IHandler<BookRelease, bool>
+    public class OrderBook : IHandler<BookRelease>
     {
         private readonly ILibrary library;
 
@@ -14,12 +14,11 @@ namespace ShhhLibrary.Handlers
             this.library = library;
         }
 
-        public Task<bool> Handle(BookRelease bookRelease)
+        public Task Handle(BookRelease bookRelease)
         {
             library.PrintBookOnOrder(bookRelease.Book);
             library.AddBook(bookRelease.Book);
-            return Task.FromResult(true);
-            // return Task.CompletedTask;
+            return Task.CompletedTask;
         }
     }
 }

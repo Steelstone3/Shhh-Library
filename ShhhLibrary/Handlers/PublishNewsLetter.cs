@@ -1,12 +1,10 @@
-using System;
-using System.Threading;
 using System.Threading.Tasks;
 using ShhhLibrary.Models;
 using ShhhLibrary.Notifications;
 
 namespace ShhhLibrary.Handlers
 {
-    public class PublishNewsLetter : IHandler<BookRelease, bool>
+    public class PublishNewsLetter : IHandler<BookRelease>
     {
         private readonly ILibrary library;
 
@@ -15,11 +13,10 @@ namespace ShhhLibrary.Handlers
             this.library = library;
         }
 
-        public Task<bool> Handle(BookRelease bookRelease)
+        public Task Handle(BookRelease bookRelease)
         {
             library.PublishNewsLetter(bookRelease.Book);
-            return Task.FromResult(true);
-            // return Task.CompletedTask;
+            return Task.CompletedTask;
         }
     }
 }
